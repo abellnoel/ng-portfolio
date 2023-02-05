@@ -10,5 +10,11 @@ import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  show = true;
+  alertType = 'warning';
+  alertShow = true;
+
+  close(): void {
+    console.log('alert closed!');
+    this.alertShow = false;
+  }
 }
