@@ -40,10 +40,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --prod
+        run: npm run build --prod
 
       - name: ESLint (JS/TS) Action 
         uses: iCrawl/action-eslint@v1
         
       - name: Test
-        run: npm run test -- --prod
+        run: npm run test --prod
