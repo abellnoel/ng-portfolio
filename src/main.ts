@@ -1,13 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './components/app/app.component';
+import { BaseComponent } from './components/base/base.component';
 import { Routes, provideRouter } from '@angular/router';
 import '@angular/localize/init';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: BaseComponent },
 ];
 
-bootstrapApplication(AppComponent, {
+bootstrapApplication(BaseComponent, {
   providers: [provideRouter(appRoutes)],
 });

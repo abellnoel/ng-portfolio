@@ -1,0 +1,6 @@
+<div *ngIf="alertShow" class="row">
+  <ngb-alert [animation]="true" [type]="alertType" (closed)="close()"
+    ><strong>{{ topic }}</strong
+    >{{ message }}</ngb-alert
+  >
+</div>
