@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row">
-    <abn-topbar></abn-topbar>
-  </div>
-  <div class="row">
-    <abn-dismissable-alert
-      [alertType]="alertType"
-      [topic]="topic"
-      [message]="message"
-    ></abn-dismissable-alert>
-  </div>
-  <div class="row">
-    <p>This is the app standalone component!</p>
-  </div>
+<div class="shell">
+    <div class="container">
+        <div class="row">
+            <abn-topbar></abn-topbar>
+        </div>
+        <div class="row">
+            <abn-dismissable-alert
+                [alertType]="alertType"
+                [topic]="topic"
+                [message]="message"
+            ></abn-dismissable-alert>
+        </div>
+        <div class="row">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
