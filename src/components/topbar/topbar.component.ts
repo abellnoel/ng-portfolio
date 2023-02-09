@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
 import { NavRoute } from './nav-route';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @Component({
     selector: 'abn-topbar',
     standalone: true,
-    imports: [CommonModule, NgbNav, RouterLink],
+    imports: [CommonModule, NgbNav, RouterLink, RouterTestingModule],
     templateUrl: './topbar.component.html',
     styleUrls: ['./topbar.component.css'],
 })
