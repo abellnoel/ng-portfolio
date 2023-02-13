@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
@@ -16,7 +16,10 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
 })
 export class TopbarComponent implements OnInit {
     @Input() routes: TopbarRoute[] = [];
+    @Output() colorThemeChanged = new EventEmitter<string>();
+
     activeRoute = '';
+    colorTheme = 'dark';
 
     constructor(private location: Location) {}
 
@@ -30,5 +33,10 @@ export class TopbarComponent implements OnInit {
 
     handleNavigation(route: TopbarRoute) {
         this.activeRoute = route.path;
+    }
+
+    toggleColorTheme() {
+        this.colorTheme = this.colorTheme === 'dark' ? 'light' : 'dark';
+        this.colorThemeChanged.emit(this.colorTheme);
     }
 }

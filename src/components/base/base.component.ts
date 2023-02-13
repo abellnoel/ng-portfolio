@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from '../topbar/topbar.component';
 import { TopbarRoute } from 'src/components/topbar/topbar-route';
 import { DismissableAlertComponent } from '../dismissable-alert/dismissable-alert.component';
-
 @Component({
     selector: 'abn-base',
     standalone: true,
@@ -27,4 +26,10 @@ export class BaseComponent {
         { name: 'Home', path: '/home' },
         { name: 'Gallery', path: '/gallery' },
     ];
+
+    constructor(private renderer: Renderer2) {}
+
+    setColorTheme(theme: string) {
+        this.renderer.setAttribute(document.body, 'data-bs-theme', theme);
+    }
 }
