@@ -1,0 +1,21 @@
+<form
+    class="d-flex"
+    role="search"
+    [formGroup]="searchForm"
+    (ngSubmit)="resetForm()"
+>
+    <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        formControlName="searchQuery"
+    />
+    <button
+        class="btn btn-outline-success"
+        type="submit"
+        [routerLink]="['/search', getSearchQuery()]"
+    >
+        Go!
+    </button>
+</form>

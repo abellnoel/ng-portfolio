@@ -1,27 +1,19 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand">Abellnoel</a>
-
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li *ngFor="let route of routes" class="nav-item">
                 <a
-                    class="{{ getClass(route) }}"
-                    routerLink="{{ route.routerLink }}"
-                    attr.aria-current="{{ getAriaCurrent(route) }}"
-                    (click)="onNavigate(route)"
+                    class="nav-link"
+                    [ngClass]="{ active: isActiveRoute(route) }"
+                    [attr.aria-current]="isActiveRoute(route) ? 'page' : null"
+                    routerLink="{{ route.path }}"
+                    (click)="handleNavigation(route)"
                 >
                     {{ route.name }}
                 </a>
             </li>
         </ul>
-        <!-- <form class="d-flex" role="search">
-            <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">Go!</button>
-        </form> -->
+        <abn-searchbar></abn-searchbar>
     </div>
 </nav>

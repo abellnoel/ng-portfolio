@@ -1,38 +1,34 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
-import { NavRoute } from './nav-route';
+import { TopbarRoute } from './topbar-route';
+import { SearchbarComponent } from '../searchbar/searchbar.component';
 
+//TODO: Solve for initial redirect to a defined TopbarRoute
+//TODO: Remove active route highlighting after search
 @Component({
     selector: 'abn-topbar',
     standalone: true,
-    imports: [CommonModule, NgbNav, RouterLink],
+    imports: [CommonModule, NgbNav, RouterLink, SearchbarComponent],
     templateUrl: './topbar.component.html',
     styleUrls: ['./topbar.component.css'],
 })
-export class TopbarComponent {
-    routes: NavRoute[] = [
-        { name: 'Home', routerLink: '/home', active: true },
-        { name: 'Gallery', routerLink: '/gallery', active: false },
-    ];
+export class TopbarComponent implements OnInit {
+    @Input() routes: TopbarRoute[] = [];
+    activeRoute = '';
 
-    getClass(route: NavRoute): string {
-        return route.active ? 'nav-link active' : 'nav-link';
+    constructor(private location: Location) {}
+
+    ngOnInit() {
+        this.activeRoute = this.location.path();
     }
 
-    getAriaCurrent(route: NavRoute): string {
-        return route.active ? 'page' : 'false';
+    isActiveRoute(route: TopbarRoute) {
+        return this.activeRoute === route.path;
     }
 
-    resetActive(): void {
-        for (const route of this.routes) {
-            route.active = false;
-        }
-    }
-
-    onNavigate(route: NavRoute): void {
-        this.resetActive();
-        route.active = true;
+    handleNavigation(route: TopbarRoute) {
+        this.activeRoute = route.path;
     }
 }
