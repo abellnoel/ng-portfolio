@@ -1,1 +1,16 @@
-<p>gallery works!</p>
+<h1>Gallery</h1>
+<div class="container mt-4">
+    <div class="row g-4" [class]="rowColsClass">
+        <div class="col" *ngFor="let project of projects">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <a [href]="project.link" class="align-self-end">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

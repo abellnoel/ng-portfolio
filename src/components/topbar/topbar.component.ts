@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
-import { TopbarRoute } from './topbar-route';
+import { TopbarRoute } from '../../interfaces/topbar-route';
 import { SearchbarComponent } from '../searchbar/searchbar.component';
 
 //TODO: Solve for initial redirect to a defined TopbarRoute

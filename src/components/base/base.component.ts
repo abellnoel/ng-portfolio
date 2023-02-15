@@ -2,7 +2,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from '../topbar/topbar.component';
-import { TopbarRoute } from 'src/components/topbar/topbar-route';
+import { TopbarRoute } from 'src/interfaces/topbar-route';
 import { DismissableAlertComponent } from '../dismissable-alert/dismissable-alert.component';
 @Component({
     selector: 'abn-base',
